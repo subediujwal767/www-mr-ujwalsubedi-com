@@ -52,6 +52,14 @@ nav a{
   color:#333;
   font-weight:bold;
 }
+/* skills */
+ul li{
+  background:white;
+  margin:10px auto;
+  padding:10px;
+  width:200px;
+  border-radius:10px;
+}
 
 /* sections */
 section{
@@ -80,15 +88,6 @@ button {
 button:hover {
     background-color: #2ecc71;
     transform: scale(1.1);
-}
-
-/* skills */
-ul li{
-  background:white;
-  margin:10px auto;
-  padding:10px;
-  width:200px;
-  border-radius:10px;
 }
 
 /* footer */
