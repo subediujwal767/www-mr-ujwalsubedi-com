@@ -5,7 +5,15 @@
   font-family:Arial;
   scroll-behavior:smooth;
 }
-
+.right-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* makes circle */
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    object-fit: cover;
+}
 body{
   background: linear-gradient(to right,#fceabb,#f8b500);
   color:#222;
