@@ -4,18 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="CUhHpxU7GvBj4afy13xxqSG-assstntsEF9IXBotIX8" />
- <title>Ujwal Subedi - Personal Website </title>
+  <title>Ujwal Subedi - Personal Website</title>
   <meta name="description" content="Official website of Ujwal Subedi from Nepal. Explore my skills, projects and creativity.">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* KEYFRAMES */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 10px rgba(0, 210, 255, 0.3); } 50% { box-shadow: 0 0 25px rgba(0, 210, 255, 0.6); } }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+    /* RESET & BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    
+    body { 
+        background: linear-gradient(-45deg, #f0f9ff, #e0e7ff, #ffffff, #fdf2f8); 
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: #1e293b;
+        line-height: 1.6;
+        padding: 0 15px; /* Side padding for mobile */
+    }
+
+    #progress { position: fixed; top: 0; left: 0; height: 4px; background: #00d2ff; width: 0%; z-index: 2000; box-shadow: 0 0 10px #00d2ff; }
+
+    /* PROFILE PICTURE */
+    .profile-container { display: flex; justify-content: center; margin-top: 40px; animation: fadeIn 1s ease-out; }
+    .pro-pic-square {
+        width: 150px; height: 150px; /* Responsive size */
+        background: url('favicon.png') center/cover; 
+        border: 4px solid #00d2ff; 
+        border-radius: 20px; 
+        animation: float 4s ease-in-out infinite, glow 3s infinite;
+        background-color: #ffffff;
+    }
+
+    header { text-align: center; padding: 20px 0; animation: fadeIn 1.2s ease-out; }
+    header h1 { font-size: 2.5rem; background: linear-gradient(to right, #0ea5e9, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    /* NAVIGATION - Responsive Flex */
+    nav { 
+        position: sticky; top: 10px; z-index: 1000;
+        display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; 
+        margin: 20px auto; padding: 10px; width: 100%; max-width: fit-content;
+        background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); 
+        border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    nav a { text-decoration: none; color: #475569; font-weight: 600; padding: 6px 12px; transition: 0.3s; font-size: 0.9rem; }
+    nav a:hover { color: #00d2ff; background: rgba(0, 210, 255, 0.1); border-radius: 20px; }
+
+    /* SECTIONS */
+    section { 
+        max-width: 800px; margin: 30px auto; padding: 25px; 
+        background: rgba(255, 255, 255, 0.6); border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.8); transition: 0.4s;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+    h2 { color: #0284c7; margin-bottom: 15px; font-size: 1.5rem; border-left: 5px solid #00d2ff; padding-left: 15px; }
+
+    /* SKILLS - Responsive Grid */
+    ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    li { background: rgba(255, 255, 255, 0.8); padding: 12px; border-radius: 12px; border: 1px solid rgba(0, 210, 255, 0.2); color: #334155; font-size: 0.95rem; }
+
+    /* BUTTONS */
+    button { background: linear-gradient(135deg, #00d2ff, #3a7bd5); color: white; border: none; padding: 12px 30px; border-radius: 12px; cursor: pointer; font-weight: bold; margin-top: 15px; }
+
+    /* SOCIALS */
+    .social { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px 0; }
+    .social a { text-decoration: none; padding: 10px 18px; border-radius: 10px; font-weight: bold; color: white; font-size: 0.9rem; }
+    .social a[href*="facebook"] { background: #1877f2; }
+    .social a[href*="youtube"] { background: #ff0000; }
+
+    footer { text-align: center; padding: 40px 10px; color: #64748b; }
+
+    #topBtn { position: fixed; bottom: 20px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; background: #00d2ff; color: white; border: none; cursor: pointer; z-index: 1001; }
+
+    /* MEDIA QUERIES FOR LAPTOP/DESKTOP */
+    @media (min-width: 768px) {
+        body { padding: 0 40px; }
+        header h1 { font-size: 3.5rem; }
+        section { padding: 40px; margin: 40px auto; }
+        .pro-pic-square { width: 180px; height: 180px; }
+        nav a { padding: 8px 15px; font-size: 1rem; }
+    }
+
+    /* MEDIA QUERIES FOR MOBILE */
+    @media (max-width: 480px) {
+        header h1 { font-size: 2rem; }
+        ul { grid-template-columns: 1fr; } /* Stack skills in one column */
+        nav { border-radius: 20px; } /* More square nav for vertical stacking */
+        .social a { width: 100%; text-align: center; } /* Social buttons stack on tiny screens */
+    }
+  </style>
 </head>
 <body>
 
 <div id="progress"></div>
 
+<div class="profile-container">
+    <div class="pro-pic-square"></div>
+</div>
+
 <header>
   <h1>Ujwal Subedi</h1>
-  <p id="typing"></p>
+  <p id="typing" style="color: #0284c7; font-weight: bold; min-height: 25px;"></p>
 </header>
 
 <nav>
@@ -23,24 +117,18 @@
   <a href="#about">About</a>
   <a href="ujwal.html">Skills</a>
   <a href="#contact">Contact</a>
-  <a href="privacy.html">Privacy Policy</a>
+  <a href="privacy.html">Privacy</a>
 </nav>
 
-<section id="home">
-  <img src="favicon.png" class="center-image">
+<section id="home" style="text-align: center;">
   <h2>Welcome</h2>
-  <p>Hello, I'm Ujwal Subedi.
-Welcome to my website! This is where I share my work and the things I am passionate about. Thanks for visiting, and I hope you enjoy looking around.</p>
+  <p>Hello, I'm Ujwal Subedi. Welcome to my website! I share my work and the things I am passionate about here. I hope you enjoy looking around.</p>
   <button onclick="showMessage()">Say Hello</button>
 </section>
 
 <section id="about">
   <h2>About Me</h2>
-  <p>Hello! My name is Ujwal Subedi. I am passionate about learning new things and improving my skills every day. I enjoy exploring technology, education, and creative ideas.
-
-I created this website to share information and connect with others. My goal is to provide useful content and build a positive online presence.
-
-Thank you for visiting my site</p>
+  <p>I am passionate about learning and improving my skills every day. I enjoy exploring technology, education, and creative ideas to build a positive online presence.</p>
 </section>
 
 <section id="skills">
@@ -55,22 +143,45 @@ Thank you for visiting my site</p>
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email: subediujwal767@gmail.com</p>
-  <p>Contact: 9825926919</p>
+  <p>📧 Email: <strong>subediujwal767@gmail.com</strong></p>
+  <p>📞 Contact: <strong>9825926919</strong></p>
 </section>
 
 <footer>
-  <a href="privacy.html">Privacy Policy</a>
-  <p>Follow Me</p>
   <div class="social">
-    <a href="https://www.facebook.com/Mr.ujwalsubedi">📘 Facebook</a>
-    <a href="https://www.youtube.com/@Mr.ujwalsubedi">▶️ YouTube</a>
+    <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank">📘 Facebook</a>
+    <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank">▶️ YouTube</a>
   </div>
   <p>© 2026 Ujwal Creation</p>
+  <br>
+  <a href="privacy.html" style="color: #64748b; font-size: 0.8rem;">Privacy Policy</a>
 </footer>
 
 <button id="topBtn" onclick="topFunction()">↑</button>
 
-<script src="script.js"></script>
+<script>
+    const text = "Creator | Developer | Passionate Learner";
+    let index = 0;
+    function typeEffect() {
+        if (index < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100);
+        }
+    }
+    window.onload = typeEffect;
+
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress").style.width = scrolled + "%";
+        document.getElementById("topBtn").style.display = (winScroll > 200) ? "block" : "none";
+    };
+
+    function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+    function showMessage() { alert("Hello from Ujwal! 🚀 Thanks for connecting."); }
+</script>
+
 </body>
 </html>
