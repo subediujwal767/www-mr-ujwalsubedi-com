@@ -1,0 +1,305 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Trick: Native Aspect Ratio</title>
+</head>
+<body style="margin: 0; padding: 24px 16px; min-height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box;">
+
+    <!-- Main Card Container -->
+    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box;">
+        
+        <!-- Banner Image Container -->
+        <div style="width: 100%; height: 280px; overflow: hidden; background: #0f172a; position: relative;">
+            <img id="blog-cover" 
+                 src="tech_workspace.png" 
+                 onerror="this.src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80'" 
+                 alt="Scenic Landscape of Jhiljhile, Shivasatakshi" 
+                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+            
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.6) 0%, transparent 100%);"></div>
+            
+            <!-- Category Badge -->
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(13, 148, 136, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #ffffff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 12px; border-radius: 9999px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                HTML & CSS Trick
+            </span>
+        </div>
+
+        <!-- Content Area -->
+        <div style="padding: 24px sm: 32px; box-sizing: border-box; padding: 32px;">
+            
+            <!-- Main Headline -->
+            <h2 style="font-size: 1.65rem; color: #0f172a; margin: 0 0 12px 0; font-weight: 800; line-height: 1.25; tracking: -0.02em;">
+                Stop Layout Shifts with Native Aspect Ratio
+            </h2>
+
+            <!-- Post Meta Row -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px;">
+                <span style="display: flex; align-items: center; gap: 6px; color: #334155; font-weight: 600;">
+                    <span style="font-size: 15px;">✍️</span> Ujwal Subedi
+                </span>
+                <span style="color: #cbd5e1;">•</span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                    📅 May 27, 2026
+                </span>
+                <span style="color: #cbd5e1;">•</span>
+                <span style="display: flex; align-items: center; gap: 4px; color: #0d9488; font-weight: 600;">
+                    📍 Shivasatakshi, Nepal
+                </span>
+            </div>
+
+            <!-- Content Description (AdSense Optimized Human Copy) -->
+            <div style="font-size: 15px; color: #475569; line-height: 1.7; margin: 0 0 24px 0;">
+                <p style="margin-top: 0; margin-bottom: 16px;">
+                    We have all been there: you are reading an article on your phone, you go to tap a link, and—boom!—the page suddenly jumps, causing you to accidentally tap an ad or a completely different button. This frustrating experience is known as <strong>Cumulative Layout Shift (CLS)</strong>, and it is one of the most common user experience issues on the modern web.
+                </p>
+                <p style="margin-bottom: 16px;">
+                    Why does this happen? When a browser loads a webpage, it parses the HTML layout first. If your images or videos don’t have defined dimensions, the browser has no idea how much vertical space to reserve. Once the visual media finally finishes downloading, the browser suddenly shifts the rest of your text downward to fit the image.
+                </p>
+                
+                <!-- Native Code Block -->
+                <div style="background: #090d16; border: 1px solid #1e293b; padding: 16px; border-radius: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; color: #2dd4bf; overflow-x: auto; margin-bottom: 16px; box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);">
+                    <span style="color: #64748b;">// Reserve space instantly in one line</span><br>
+                    <span style="color: #f43f5e;">img</span>, <span style="color: #f43f5e;">video</span> {<br>
+                    &nbsp;&nbsp;<span style="color: #22d3ee;">width</span>: <span style="color: #fbbf24;">100%</span>;<br>
+                    &nbsp;&nbsp;<span style="color: #22d3ee;">aspect-ratio</span>: <span style="color: #fbbf24;">16 / 9</span>;<br>
+                    &nbsp;&nbsp;<span style="color: #22d3ee;">object-fit</span>: <span style="color: #fbbf24;">cover</span>;<br>
+                    }
+                </div>
+                
+                <p style="margin-bottom: 0;">
+                    In the past, developers had to rely on complex CSS hacks (like the percentage padding workaround) to maintain fluid layouts. Luckily, modern CSS introduces the beautifully simple <code>aspect-ratio</code> property. By using this property, you tell the browser the exact proportions of your container beforehand, reserving the space instantly while the asset loads quietly in the background. Use the playground widget below to see how gracefully it adapts!
+                </p>
+            </div>
+
+            <!-- LIVE INTERACTIVE WIDGET -->
+            <div style="background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; padding: 16px; margin-bottom: 24px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                    <h4 style="margin: 0; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em;">Live Playground</h4>
+                    <div style="display: flex; gap: 6px;">
+                        <button onclick="setDemoRatio('16/9')" id="btn-16-9" style="padding: 4px 10px; background: #0f172a; color: #ffffff; font-size: 11px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;">16:9</button>
+                        <button onclick="setDemoRatio('4/3')" id="btn-4-3" style="padding: 4px 10px; background: #ffffff; color: #475569; font-size: 11px; font-weight: 700; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; transition: all 0.2s;">4:3</button>
+                        <button onclick="setDemoRatio('1/1')" id="btn-1-1" style="padding: 4px 10px; background: #ffffff; color: #475569; font-size: 11px; font-weight: 700; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; transition: all 0.2s;">1:1</button>
+                    </div>
+                </div>
+                <div style="width: 100%; background: #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; justify-content: center; align-items: center; box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06);">
+                    <div id="ratio-demo-box" style="width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: 700; font-size: 13px; transition: aspect-ratio 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                        <span id="ratio-label" style="background: rgba(15, 23, 42, 0.4); padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">aspect-ratio: 16 / 9</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Metrics Panel -->
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                <!-- Live Views counter -->
+                <div id="view-panel" style="display: flex; align-items: center; gap: 8px; color: #64748b; font-weight: 600; font-size: 14px; opacity: 0; transition: opacity 0.5s ease;">
+                    <span style="font-size: 16px;">👁️</span>
+                    <span>Views: <strong id="view-counter" style="color: #0f172a; font-weight: 700;">0</strong></span>
+                </div>
+
+                <!-- Live Helpful Vote Counter -->
+                <button id="like-button" 
+                        onclick="registerPostLike()" 
+                        style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 9999px; border: 1px solid #ccfbf1; background: rgba(240, 253, 250, 0.4); color: #0d9488; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.02); opacity: 0;">
+                    <span>💡</span>
+                    <span>Helpful (<span id="like-counter">0</span>)</span>
+                </button>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Custom Notification Dialog (Strict No Browser-Alert replacement) -->
+    <div id="notification-modal" style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 16px; opacity: 0; transition: opacity 0.3s ease;">
+        <div id="modal-box" style="background: #ffffff; border-radius: 24px; padding: 32px; max-width: 340px; w-full text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border: 1px solid #f1f5f9; transform: scale(0.95); transition: transform 0.3s ease; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+            <div style="width: 48px; height: 48px; background: #f0fdfa; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #14b8a6; font-size: 20px;">
+                💡
+            </div>
+            <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 800; color: #0f172a;">Trick Helpful!</h3>
+            <p id="modal-msg" style="margin: 0 0 24px 0; font-size: 13.5px; color: #64748b; line-height: 1.5; text-align: center;">Thanks for voting! Your local feedback and live database interaction are registered.</p>
+            <button onclick="closeNotification()" style="width: 100%; padding: 12px; background: #0f172a; border: none; color: #ffffff; font-weight: 700; border-radius: 12px; cursor: pointer; transition: background 0.2s;">
+                Return to Article
+            </button>
+        </div>
+    </div>
+
+    <!-- Live Interactive State Engine -->
+    <script>
+        // Interactive Aspect Ratio Demo Adjustments
+        function setDemoRatio(ratio) {
+            const demoBox = document.getElementById('ratio-demo-box');
+            const label = document.getElementById('ratio-label');
+            
+            // Adjust ratio inline
+            demoBox.style.aspectRatio = ratio;
+            label.innerText = `aspect-ratio: ${ratio.replace('/', ' / ')}`;
+
+            // Toggle Active inline styles on buttons manually
+            const ratios = ['16-9', '4-3', '1-1'];
+            ratios.forEach(r => {
+                const btn = document.getElementById(`btn-${r}`);
+                const currentRatio = r.replace('-', '/');
+                if (currentRatio === ratio) {
+                    btn.style.background = "#0f172a";
+                    btn.style.color = "#ffffff";
+                    btn.style.border = "none";
+                } else {
+                    btn.style.background = "#ffffff";
+                    btn.style.color = "#475569";
+                    btn.style.border = "1px solid #cbd5e1";
+                }
+            });
+        }
+    </script>
+
+    <!-- Firebase Connection Pipeline -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global Variable Config Maps
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'ujwal-web-inline-tricks';
+
+        // Strict Compliance Database Path (Rule 1: public collection data)
+        const metricsDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'aspect_ratio_post_v3');
+
+        let isAuthSuccess = false;
+
+        // Establish anonymous authenticated context (Rule 3: Authenticate before running operations)
+        const establishAuthSession = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.error("Firebase Session Initialization Failure:", err);
+            }
+        };
+
+        establishAuthSession();
+
+        // Track Active Session State
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                isAuthSuccess = true;
+                await ensureDocumentExists();
+                await handlePageViewMetric();
+                initRealtimeMetrics();
+            }
+        });
+
+        // Initialize document schema in database if it doesn't exist
+        async function ensureDocumentExists() {
+            try {
+                const docSnap = await getDoc(metricsDocPath);
+                if (!docSnap.exists()) {
+                    await setDoc(metricsDocPath, { views: 1, likes: 0 }, { merge: true });
+                }
+            } catch (err) {
+                console.error("Initialization check error:", err);
+            }
+        }
+
+        // View handling: Limit database writes to once per browser session
+        async function handlePageViewMetric() {
+            if (!sessionStorage.getItem('aspect_ratio_inline_view_registered')) {
+                try {
+                    await updateDoc(metricsDocPath, { views: increment(1) });
+                    sessionStorage.setItem('aspect_ratio_inline_view_registered', 'true');
+                } catch (e) {
+                    console.error("Failed writing page view:", e);
+                }
+            }
+        }
+
+        // Live Real-Time database streams (Views + Likes)
+        function initRealtimeMetrics() {
+            onSnapshot(metricsDocPath, (snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.data();
+                    document.getElementById('view-counter').innerText = Number(data.views || 0).toLocaleString();
+                    document.getElementById('like-counter').innerText = Number(data.likes || 0).toLocaleString();
+
+                    // Smooth visual fade-in of panel metrics via style adjustments
+                    document.getElementById('view-panel').style.opacity = "1";
+                    document.getElementById('like-button').style.opacity = "1";
+                }
+            }, (error) => {
+                console.error("Firestore live synchronization failure:", error);
+            });
+
+            // Restrict double vote UI if saved previously
+            if (localStorage.getItem('aspect_ratio_inline_vote_status')) {
+                applyLikedState();
+            }
+        }
+
+        // Action Trigger: Record Useful Vote
+        window.registerPostLike = async () => {
+            if (!isAuthSuccess) return;
+
+            if (localStorage.getItem('aspect_ratio_inline_vote_status')) {
+                triggerNotification("You have already voted this web trick as helpful! Thank you.");
+                return;
+            }
+
+            try {
+                // Update Firestore
+                await updateDoc(metricsDocPath, { likes: increment(1) });
+                localStorage.setItem('aspect_ratio_inline_vote_status', 'true');
+                applyLikedState();
+            } catch (err) {
+                console.error("Failed to post vote interaction:", err);
+            }
+        };
+
+        // UI state helper: Permanently marks liked configuration using inline style rules
+        function applyLikedState() {
+            const btn = document.getElementById('like-button');
+            if (btn) {
+                btn.style.background = "#f0fdfa";
+                btn.style.borderColor = "#99f6e4";
+                btn.style.color = "#0d9488";
+                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
+            }
+        }
+    </script>
+
+    <!-- Modal Dialog Engine -->
+    <script>
+        function triggerNotification(message) {
+            const modal = document.getElementById('notification-modal');
+            const box = document.getElementById('modal-box');
+            document.getElementById('modal-msg').innerText = message;
+
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                box.style.transform = 'scale(1)';
+            }, 10);
+        }
+
+        function closeNotification() {
+            const modal = document.getElementById('notification-modal');
+            const box = document.getElementById('modal-box');
+
+            modal.style.opacity = '0';
+            box.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
+
+```
