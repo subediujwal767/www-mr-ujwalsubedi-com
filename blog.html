@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Dev Trick: Native Aspect Ratio</title>
 </head>
-<body style="margin: 0; padding: 24px 16px; min-height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box;">
+<body style="margin: 0; padding: 40px 16px; min-height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; box-sizing: border-box;">
+
+    <!-- Top Blog Title & Header Area -->
+    <header style="width: 100%; max-width: 580px; margin-bottom: 32px; text-align: center; box-sizing: border-box; padding: 0 8px;">
+        <h1 style="margin: 0 0 8px 0; font-size: 2.25rem; font-weight: 900; color: #0f172a; letter-spacing: -0.03em; background: linear-gradient(135deg, #0d9488 0%, #1e293b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Ujwal Tech Tricks Blog
+        </h1>
+        <p style="margin: 0; font-size: 15px; color: #64748b; font-weight: 500; line-height: 1.5;">
+            Mastering modern frontend architecture with easy, native CSS tricks.
+        </p>
+    </header>
 
     <!-- Main Card Container -->
-    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box;">
+    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box; margin-bottom: 40px;">
         
         <!-- Banner Image Container -->
         <div style="width: 100%; height: 280px; overflow: hidden; background: #0f172a; position: relative;">
@@ -28,7 +38,7 @@
         </div>
 
         <!-- Content Area -->
-        <div style="padding: 24px sm: 32px; box-sizing: border-box; padding: 32px;">
+        <div style="box-sizing: border-box; padding: 32px;">
             
             <!-- Main Headline -->
             <h2 style="font-size: 1.65rem; color: #0f172a; margin: 0 0 12px 0; font-weight: 800; line-height: 1.25; tracking: -0.02em;">
@@ -106,7 +116,6 @@
                     <span>💡</span>
                     <span>Helpful (<span id="like-counter">0</span>)</span>
                 </button>
-<hr>
             </div>
 
         </div>
