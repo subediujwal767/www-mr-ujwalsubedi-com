@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Trick: Native Aspect Ratio</title>
+    <title>Ujwal Tech Tricks Blog</title>
 </head>
 <body style="margin: 0; padding: 40px 16px; min-height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; box-sizing: border-box;">
 
@@ -18,8 +18,8 @@
         </p>
     </header>
 
-    <!-- Main Card Container -->
-    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box; margin-bottom: 24px;">
+    <!-- [FIRST POST] Stop Layout Shifts with Native Aspect Ratio -->
+    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box; margin-bottom: 40px;">
         
         <!-- Banner Image Container -->
         <div style="width: 100%; height: 280px; overflow: hidden; background: #0f172a; position: relative;">
@@ -111,10 +111,123 @@
 
                 <!-- Live Helpful Vote Counter -->
                 <button id="like-button" 
-                        onclick="registerPostLike()" 
+                        onclick="registerPostLike('aspect')" 
                         style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 9999px; border: 1px solid #ccfbf1; background: rgba(240, 253, 250, 0.4); color: #0d9488; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.02); opacity: 0;">
                     <span>💡</span>
                     <span>Helpful (<span id="like-counter">0</span>)</span>
+                </button>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Beautiful Minimalist Horizontal Divider (Separates first and second post) -->
+    <hr style="border: 0; border-top: 1px solid #cbd5e1; width: 100%; max-width: 580px; margin: 0 auto 40px auto;">
+
+    <!-- [SECOND UNIQUE POST] Master CSS Glassmorphic UI Design -->
+    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box; margin-bottom: 40px;">
+        
+        <!-- Banner Image Container -->
+        <div style="width: 100%; height: 280px; overflow: hidden; background: #0d1527; position: relative;">
+            <img id="blog-cover-glass" 
+                 src="html_css_teaching.png" 
+                 onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'" 
+                 alt="Interactive CSS teaching concept graphic" 
+                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+            
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(13, 21, 39, 0.75) 0%, transparent 100%);"></div>
+            
+            <!-- Category Badge -->
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(147, 51, 234, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #ffffff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 12px; border-radius: 9999px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                CSS & UI Design
+            </span>
+        </div>
+
+        <!-- Content Area -->
+        <div style="box-sizing: border-box; padding: 32px;">
+            
+            <!-- Main Headline -->
+            <h2 style="font-size: 1.65rem; color: #0f172a; margin: 0 0 12px 0; font-weight: 800; line-height: 1.25; tracking: -0.02em;">
+                Mastering Frosted Glass UI with CSS Backdrop-Filter
+            </h2>
+
+            <!-- Post Meta Row -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px;">
+                <span style="display: flex; align-items: center; gap: 6px; color: #334155; font-weight: 600;">
+                    <span style="font-size: 15px;">✍️</span> Ujwal Subedi
+                </span>
+                <span style="color: #cbd5e1;">•</span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                    📅 May 28, 2026
+                </span>
+                <span style="color: #cbd5e1;">•</span>
+                <span style="display: flex; align-items: center; gap: 4px; color: #a855f7; font-weight: 600;">
+                    📍 Shivasatakshi, Nepal
+                </span>
+            </div>
+
+            <!-- Content Description (AdSense Optimized Human Copy) -->
+            <div style="font-size: 15px; color: #475569; line-height: 1.7; margin: 0 0 24px 0;">
+                <p style="margin-top: 0; margin-bottom: 16px;">
+                    Modern user interface design is increasingly moving toward tactile, translucent elements. One of the most sought-after visual aesthetics in web design is **Glassmorphism**—creating elements that mimic physical frosted glass panels. While simple opacities only wash out your colors, authentic glassmorphism refracts and blurs elements passing directly underneath it.
+                </p>
+                <p style="margin-bottom: 16px;">
+                    The secret behind this effect is the native CSS property: <code>backdrop-filter</code>. Unlike a standard <code>filter</code> (which blurs the element itself), backdrop-filter applies a mathematical blur only to the visual layers directly below the container. 
+                </p>
+                
+                <!-- Code teaching Block -->
+                <div style="background: #090d16; border: 1px solid #1e293b; padding: 16px; border-radius: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; color: #c084fc; overflow-x: auto; margin-bottom: 16px; box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);">
+                    <span style="color: #64748b;">/* The Modern Frosted Glass Recipe */</span><br>
+                    <span style="color: #f43f5e;">.glass-panel</span> {<br>
+                    &nbsp;&nbsp;<span style="color: #c084fc;">background</span>: <span style="color: #fbbf24;">rgba(255, 255, 255, 0.2)</span>;<br>
+                    &nbsp;&nbsp;<span style="color: #c084fc;">backdrop-filter</span>: <span style="color: #fbbf24;">blur(12px)</span>;<br>
+                    &nbsp;&nbsp;<span style="color: #c084fc;">border</span>: <span style="color: #fbbf24;">1px solid rgba(255, 255, 255, 0.25)</span>;<br>
+                    &nbsp;&nbsp;<span style="color: #c084fc;">box-shadow</span>: <span style="color: #fbbf24;">0 8px 32px rgba(0, 0, 0, 0.15)</span>;<br>
+                    }
+                </div>
+                
+                <p style="margin-bottom: 0;">
+                    To achieve a convincing frosted-glass look, pair a slightly translucent, high-contrast background color with a thin translucent white border. This mimics the light reflecting off the cut physical edge of glass. You can test and toggle the live glass-blur filters down below!
+                </p>
+            </div>
+
+            <!-- LIVE INTERACTIVE WIDGET (GLASSPLAYGROUND) -->
+            <div style="background: #0f172a; border-radius: 16px; border: 1px solid #1e293b; padding: 20px; margin-bottom: 24px; position: relative; overflow: hidden;">
+                <!-- Decorative background shapes to see blur effect in action -->
+                <div style="position: absolute; top: 10px; left: 15%; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #f43f5e, #fb7185); filter: blur(3px);"></div>
+                <div style="position: absolute; bottom: 15px; right: 20%; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #3b82f6); filter: blur(3px);"></div>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; position: relative; z-index: 2;">
+                    <h4 style="margin: 0; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em;">Interactive Blur Playground</h4>
+                    <div style="display: flex; gap: 6px;">
+                        <button onclick="setGlassBlur('0px')" id="btn-blur-0" style="padding: 4px 10px; background: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;">0px</button>
+                        <button onclick="setGlassBlur('10px')" id="btn-blur-10" style="padding: 4px 10px; background: #9333ea; color: #ffffff; font-size: 11px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;">10px</button>
+                        <button onclick="setGlassBlur('24px')" id="btn-blur-24" style="padding: 4px 10px; background: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;">24px</button>
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 120px; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; box-sizing: border-box;">
+                    <!-- Frosted Glass Interactive Card -->
+                    <div id="interactive-glass-card" style="width: 85%; height: 80px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 12px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: 700; font-size: 13.5px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); transition: backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;">
+                        <span id="blur-label">backdrop-filter: blur(10px);</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Metrics Panel for Second Post -->
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                <!-- Live Views counter -->
+                <div id="view-panel-glass" style="display: flex; align-items: center; gap: 8px; color: #64748b; font-weight: 600; font-size: 14px; opacity: 0; transition: opacity 0.5s ease;">
+                    <span style="font-size: 16px;">👁️</span>
+                    <span>Views: <strong id="view-counter-glass" style="color: #0f172a; font-weight: 700;">0</strong></span>
+                </div>
+
+                <!-- Live Helpful Vote Counter -->
+                <button id="like-button-glass" 
+                        onclick="registerPostLike('glass')" 
+                        style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 9999px; border: 1px solid #f3e8ff; background: rgba(250, 245, 255, 0.4); color: #9333ea; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.02); opacity: 0;">
+                    <span>💡</span>
+                    <span>Helpful (<span id="like-counter-glass">0</span>)</span>
                 </button>
             </div>
 
@@ -132,7 +245,7 @@
     <!-- Custom Notification Dialog (Strict No Browser-Alert replacement) -->
     <div id="notification-modal" style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 16px; opacity: 0; transition: opacity 0.3s ease;">
         <div id="modal-box" style="background: #ffffff; border-radius: 24px; padding: 32px; max-width: 340px; w-full text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border: 1px solid #f1f5f9; transform: scale(0.95); transition: transform 0.3s ease; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-            <div style="width: 48px; height: 48px; background: #f0fdfa; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #14b8a6; font-size: 20px;">
+            <div id="modal-badge" style="width: 48px; height: 48px; background: #f0fdfa; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #14b8a6; font-size: 20px;">
                 💡
             </div>
             <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 800; color: #0f172a;">Trick Helpful!</h3>
@@ -150,11 +263,9 @@
             const demoBox = document.getElementById('ratio-demo-box');
             const label = document.getElementById('ratio-label');
             
-            // Adjust ratio inline
             demoBox.style.aspectRatio = ratio;
             label.innerText = `aspect-ratio: ${ratio.replace('/', ' / ')}`;
 
-            // Toggle Active inline styles on buttons manually
             const ratios = ['16-9', '4-3', '1-1'];
             ratios.forEach(r => {
                 const btn = document.getElementById(`btn-${r}`);
@@ -162,11 +273,32 @@
                 if (currentRatio === ratio) {
                     btn.style.background = "#0f172a";
                     btn.style.color = "#ffffff";
-                    btn.style.border = "none";
                 } else {
                     btn.style.background = "#ffffff";
                     btn.style.color = "#475569";
                     btn.style.border = "1px solid #cbd5e1";
+                }
+            });
+        }
+
+        // Glassmorphic Playground Blur Control
+        function setGlassBlur(val) {
+            const glassBox = document.getElementById('interactive-glass-card');
+            const label = document.getElementById('blur-label');
+
+            glassBox.style.backdropFilter = `blur(${val})`;
+            glassBox.style.webkitBackdropFilter = `blur(${val})`;
+            label.innerText = `backdrop-filter: blur(${val});`;
+
+            const blurs = ['0', '10', '24'];
+            blurs.forEach(b => {
+                const btn = document.getElementById(`btn-blur-${b}`);
+                if (b + 'px' === val) {
+                    btn.style.background = "#9333ea";
+                    btn.style.color = "#ffffff";
+                } else {
+                    btn.style.background = "#1e293b";
+                    btn.style.color = "#94a3b8";
                 }
             });
         }
@@ -185,12 +317,13 @@
         const db = getFirestore(app);
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'ujwal-web-inline-tricks';
 
-        // Strict Compliance Database Path (Rule 1: public collection data)
-        const metricsDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'aspect_ratio_post_v3');
+        // Paths for both post metrics
+        const aspectDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'aspect_ratio_post_v3');
+        const glassDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'glassmorphism_post_v1');
 
         let isAuthSuccess = false;
 
-        // Establish anonymous authenticated context (Rule 3: Authenticate before running operations)
+        // Establish anonymous authenticated context (Rule 3)
         const establishAuthSession = async () => {
             try {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -209,79 +342,87 @@
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 isAuthSuccess = true;
-                await ensureDocumentExists();
-                await handlePageViewMetric();
-                initRealtimeMetrics();
+                await ensureDocumentExists(aspectDocPath, { views: 1, likes: 0 });
+                await ensureDocumentExists(glassDocPath, { views: 1, likes: 0 });
+                await handlePageViewMetric('aspect_ratio_inline_view_registered', aspectDocPath);
+                await handlePageViewMetric('glassmorphism_view_registered', glassDocPath);
+                initRealtimeMetrics(aspectDocPath, 'view-panel', 'like-button', 'view-counter', 'like-counter', 'aspect_ratio_inline_vote_status', applyLikedStateAspect);
+                initRealtimeMetrics(glassDocPath, 'view-panel-glass', 'like-button-glass', 'view-counter-glass', 'like-counter-glass', 'glassmorphism_vote_status', applyLikedStateGlass);
             }
         });
 
         // Initialize document schema in database if it doesn't exist
-        async function ensureDocumentExists() {
+        async function ensureDocumentExists(docRef, initialData) {
             try {
-                const docSnap = await getDoc(metricsDocPath);
+                const docSnap = await getDoc(docRef);
                 if (!docSnap.exists()) {
-                    await setDoc(metricsDocPath, { views: 1, likes: 0 }, { merge: true });
+                    await setDoc(docRef, initialData, { merge: true });
                 }
             } catch (err) {
                 console.error("Initialization check error:", err);
             }
         }
 
-        // View handling: Limit database writes to once per browser session
-        async function handlePageViewMetric() {
-            if (!sessionStorage.getItem('aspect_ratio_inline_view_registered')) {
+        // View handling per post
+        async function handlePageViewMetric(sessionKey, docRef) {
+            if (!sessionStorage.getItem(sessionKey)) {
                 try {
-                    await updateDoc(metricsDocPath, { views: increment(1) });
-                    sessionStorage.setItem('aspect_ratio_inline_view_registered', 'true');
+                    await updateDoc(docRef, { views: increment(1) });
+                    sessionStorage.setItem(sessionKey, 'true');
                 } catch (e) {
                     console.error("Failed writing page view:", e);
                 }
             }
         }
 
-        // Live Real-Time database streams (Views + Likes)
-        function initRealtimeMetrics() {
-            onSnapshot(metricsDocPath, (snapshot) => {
+        // Live Real-Time database streams per post
+        function initRealtimeMetrics(docRef, viewPanelId, likeBtnId, viewCounterId, likeCounterId, localStoreKey, styleCallback) {
+            onSnapshot(docRef, (snapshot) => {
                 if (snapshot.exists()) {
                     const data = snapshot.data();
-                    document.getElementById('view-counter').innerText = Number(data.views || 0).toLocaleString();
-                    document.getElementById('like-counter').innerText = Number(data.likes || 0).toLocaleString();
+                    document.getElementById(viewCounterId).innerText = Number(data.views || 0).toLocaleString();
+                    document.getElementById(likeCounterId).innerText = Number(data.likes || 0).toLocaleString();
 
-                    // Smooth visual fade-in of panel metrics via style adjustments
-                    document.getElementById('view-panel').style.opacity = "1";
-                    document.getElementById('like-button').style.opacity = "1";
+                    document.getElementById(viewPanelId).style.opacity = "1";
+                    document.getElementById(likeBtnId).style.opacity = "1";
                 }
             }, (error) => {
                 console.error("Firestore live synchronization failure:", error);
             });
 
-            // Restrict double vote UI if saved previously
-            if (localStorage.getItem('aspect_ratio_inline_vote_status')) {
-                applyLikedState();
+            if (localStorage.getItem(localStoreKey)) {
+                styleCallback();
             }
         }
 
-        // Action Trigger: Record Useful Vote
-        window.registerPostLike = async () => {
+        // Action Trigger: Record Helpful Vote
+        window.registerPostLike = async (type) => {
             if (!isAuthSuccess) return;
 
-            if (localStorage.getItem('aspect_ratio_inline_vote_status')) {
-                triggerNotification("You have already voted this web trick as helpful! Thank you.");
+            const isAspect = type === 'aspect';
+            const localStoreKey = isAspect ? 'aspect_ratio_inline_vote_status' : 'glassmorphism_vote_status';
+            const docRef = isAspect ? aspectDocPath : glassDocPath;
+            const styleCallback = isAspect ? applyLikedStateAspect : applyLikedStateGlass;
+            const badgeBg = isAspect ? '#f0fdfa' : '#faf5ff';
+            const badgeColor = isAspect ? '#14b8a6' : '#9333ea';
+
+            if (localStorage.getItem(localStoreKey)) {
+                triggerNotification("You have already supported this post!", badgeBg, badgeColor);
                 return;
             }
 
             try {
-                // Update Firestore
-                await updateDoc(metricsDocPath, { likes: increment(1) });
-                localStorage.setItem('aspect_ratio_inline_vote_status', 'true');
-                applyLikedState();
+                await updateDoc(docRef, { likes: increment(1) });
+                localStorage.setItem(localStoreKey, 'true');
+                styleCallback();
+                triggerNotification("Thank you for your feedback! Registered successfully.", badgeBg, badgeColor);
             } catch (err) {
                 console.error("Failed to post vote interaction:", err);
             }
         };
 
-        // UI state helper: Permanently marks liked configuration using inline style rules
-        function applyLikedState() {
+        // Aspect Post Helpful UI Lock
+        function applyLikedStateAspect() {
             const btn = document.getElementById('like-button');
             if (btn) {
                 btn.style.background = "#f0fdfa";
@@ -290,14 +431,29 @@
                 btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
             }
         }
+
+        // Glassmorphism Post Helpful UI Lock
+        function applyLikedStateGlass() {
+            const btn = document.getElementById('like-button-glass');
+            if (btn) {
+                btn.style.background = "#faf5ff";
+                btn.style.borderColor = "#e9d5ff";
+                btn.style.color = "#7e22ce";
+                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
+            }
+        }
     </script>
 
     <!-- Modal Dialog Engine -->
     <script>
-        function triggerNotification(message) {
+        function triggerNotification(message, badgeBg, badgeColor) {
             const modal = document.getElementById('notification-modal');
             const box = document.getElementById('modal-box');
+            const badge = document.getElementById('modal-badge');
+            
             document.getElementById('modal-msg').innerText = message;
+            badge.style.backgroundColor = badgeBg;
+            badge.style.color = badgeColor;
 
             modal.style.display = 'flex';
             setTimeout(() => {
@@ -320,3 +476,4 @@
 </body>
 </html>
 
+```
