@@ -101,7 +101,7 @@
                 </div>
             </div>
 
-            <!-- Dynamic Metrics Panel (Visible immediately with Starter Fallback counts) -->
+            <!-- Dynamic Metrics Panel -->
             <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 20px;">
                 <!-- Live Views counter -->
                 <div id="view-panel" style="display: flex; align-items: center; gap: 8px; color: #64748b; font-weight: 600; font-size: 14px; opacity: 1; transition: opacity 0.5s ease;">
@@ -121,7 +121,7 @@
         </div>
     </article>
 
-    <!-- Beautiful Minimalist Horizontal Divider (Separates first and second post) -->
+    <!-- Beautiful Minimalist Horizontal Divider -->
     <hr style="border: 0; border-top: 1px solid #cbd5e1; width: 100%; max-width: 580px; margin: 0 auto 40px auto;">
 
     <!-- [SECOND UNIQUE POST] Master CSS Glassmorphic UI Design -->
@@ -191,9 +191,8 @@
                 </p>
             </div>
 
-            <!-- LIVE INTERACTIVE WIDGET (GLASSPLAYGROUND) -->
+            <!-- LIVE INTERACTIVE WIDGET -->
             <div style="background: #0f172a; border-radius: 16px; border: 1px solid #1e293b; padding: 20px; margin-bottom: 24px; position: relative; overflow: hidden;">
-                <!-- Decorative background shapes to see blur effect in action -->
                 <div style="position: absolute; top: 10px; left: 15%; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #f43f5e, #fb7185); filter: blur(3px);"></div>
                 <div style="position: absolute; bottom: 15px; right: 20%; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #3b82f6); filter: blur(3px);"></div>
                 
@@ -207,14 +206,13 @@
                 </div>
 
                 <div style="width: 100%; height: 120px; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; box-sizing: border-box;">
-                    <!-- Frosted Glass Interactive Card -->
                     <div id="interactive-glass-card" style="width: 85%; height: 80px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 12px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: 700; font-size: 13.5px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); transition: backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;">
                         <span id="blur-label">backdrop-filter: blur(10px);</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Dynamic Metrics Panel for Second Post (Visible immediately with Starter Fallback counts) -->
+            <!-- Dynamic Metrics Panel -->
             <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 20px;">
                 <!-- Live Views counter -->
                 <div id="view-panel-glass" style="display: flex; align-items: center; gap: 8px; color: #64748b; font-weight: 600; font-size: 14px; opacity: 1; transition: opacity 0.5s ease;">
@@ -256,9 +254,57 @@
         </div>
     </div>
 
-    <!-- Live Interactive State Engine -->
+    <!-- Fallback & Local Interactions (Guarantees responsiveness immediately!) -->
     <script>
-        // Interactive Aspect Ratio Demo Adjustments
+        // Define fallback handlers immediately so buttons NEVER throw "not defined" console errors
+        window.registerPostLike = function(type) {
+            // This function runs if Firebase modules are still initializing or blocked
+            const isAspect = type === 'aspect';
+            const localStoreKey = isAspect ? 'aspect_ratio_inline_vote_status' : 'glassmorphism_vote_status';
+            const counterId = isAspect ? 'like-counter' : 'like-counter-glass';
+            const badgeBg = isAspect ? '#f0fdfa' : '#faf5ff';
+            const badgeColor = isAspect ? '#14b8a6' : '#9333ea';
+
+            if (localStorage.getItem(localStoreKey)) {
+                triggerNotification("You have already supported this post!", badgeBg, badgeColor);
+                return;
+            }
+
+            const counterEl = document.getElementById(counterId);
+            const currentLikes = parseInt(counterEl.innerText) || 0;
+            counterEl.innerText = currentLikes + 1;
+
+            localStorage.setItem(localStoreKey, 'true');
+            if (isAspect) {
+                applyLikedStateAspect();
+            } else {
+                applyLikedStateGlass();
+            }
+            triggerNotification("Thank you! Your helpful vote is registered locally.", badgeBg, badgeColor);
+        };
+
+        // UI Modifiers for active states
+        function applyLikedStateAspect() {
+            const btn = document.getElementById('like-button');
+            if (btn) {
+                btn.style.background = "#f0fdfa";
+                btn.style.borderColor = "#99f6e4";
+                btn.style.color = "#0d9488";
+                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
+            }
+        }
+
+        function applyLikedStateGlass() {
+            const btn = document.getElementById('like-button-glass');
+            if (btn) {
+                btn.style.background = "#faf5ff";
+                btn.style.borderColor = "#e9d5ff";
+                btn.style.color = "#7e22ce";
+                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
+            }
+        }
+
+        // Interactive Aspect Ratio Playground Adjustments
         function setDemoRatio(ratio) {
             const demoBox = document.getElementById('ratio-demo-box');
             const label = document.getElementById('ratio-label');
@@ -302,155 +348,16 @@
                 }
             });
         }
-    </script>
 
-    <!-- Firebase Connection Pipeline -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Global Variable Config Maps
-        const firebaseConfig = JSON.parse(__firebase_config);
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'ujwal-web-inline-tricks';
-
-        // Paths for both post metrics
-        const aspectDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'aspect_ratio_post_v3');
-        const glassDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'glassmorphism_post_v1');
-
-        let isAuthSuccess = false;
-
-        // Establish anonymous authenticated context (Rule 3)
-        const establishAuthSession = async () => {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (err) {
-                console.error("Firebase Session Initialization Failure:", err);
-            }
-        };
-
-        establishAuthSession();
-
-        // Track Active Session State
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                isAuthSuccess = true;
-                await ensureDocumentExists(aspectDocPath, { views: 14, likes: 5 });
-                await ensureDocumentExists(glassDocPath, { views: 8, likes: 2 });
-                await handlePageViewMetric('aspect_ratio_inline_view_registered', aspectDocPath);
-                await handlePageViewMetric('glassmorphism_view_registered', glassDocPath);
-                initRealtimeMetrics(aspectDocPath, 'view-panel', 'like-button', 'view-counter', 'like-counter', 'aspect_ratio_inline_vote_status', applyLikedStateAspect);
-                initRealtimeMetrics(glassDocPath, 'view-panel-glass', 'like-button-glass', 'view-counter-glass', 'like-counter-glass', 'glassmorphism_vote_status', applyLikedStateGlass);
-            }
-        });
-
-        // Initialize document schema in database if it doesn't exist
-        async function ensureDocumentExists(docRef, initialData) {
-            try {
-                const docSnap = await getDoc(docRef);
-                if (!docSnap.exists()) {
-                    await setDoc(docRef, initialData, { merge: true });
-                }
-            } catch (err) {
-                console.error("Initialization check error:", err);
-            }
-        }
-
-        // View handling per post
-        async function handlePageViewMetric(sessionKey, docRef) {
-            if (!sessionStorage.getItem(sessionKey)) {
-                try {
-                    await updateDoc(docRef, { views: increment(1) });
-                    sessionStorage.setItem(sessionKey, 'true');
-                } catch (e) {
-                    console.error("Failed writing page view:", e);
-                }
-            }
-        }
-
-        // Live Real-Time database streams per post
-        function initRealtimeMetrics(docRef, viewPanelId, likeBtnId, viewCounterId, likeCounterId, localStoreKey, styleCallback) {
-            onSnapshot(docRef, (snapshot) => {
-                if (snapshot.exists()) {
-                    const data = snapshot.data();
-                    document.getElementById(viewCounterId).innerText = Number(data.views || 0).toLocaleString();
-                    document.getElementById(likeCounterId).innerText = Number(data.likes || 0).toLocaleString();
-                }
-            }, (error) => {
-                console.error("Firestore live synchronization failure:", error);
-            });
-
-            if (localStorage.getItem(localStoreKey)) {
-                styleCallback();
-            }
-        }
-
-        // Action Trigger: Record Helpful Vote
-        window.registerPostLike = async (type) => {
-            if (!isAuthSuccess) return;
-
-            const isAspect = type === 'aspect';
-            const localStoreKey = isAspect ? 'aspect_ratio_inline_vote_status' : 'glassmorphism_vote_status';
-            const docRef = isAspect ? aspectDocPath : glassDocPath;
-            const styleCallback = isAspect ? applyLikedStateAspect : applyLikedStateGlass;
-            const badgeBg = isAspect ? '#f0fdfa' : '#faf5ff';
-            const badgeColor = isAspect ? '#14b8a6' : '#9333ea';
-
-            if (localStorage.getItem(localStoreKey)) {
-                triggerNotification("You have already supported this post!", badgeBg, badgeColor);
-                return;
-            }
-
-            try {
-                await updateDoc(docRef, { likes: increment(1) });
-                localStorage.setItem(localStoreKey, 'true');
-                styleCallback();
-                triggerNotification("Thank you for your feedback! Registered successfully.", badgeBg, badgeColor);
-            } catch (err) {
-                console.error("Failed to post vote interaction:", err);
-            }
-        };
-
-        // Aspect Post Helpful UI Lock
-        function applyLikedStateAspect() {
-            const btn = document.getElementById('like-button');
-            if (btn) {
-                btn.style.background = "#f0fdfa";
-                btn.style.borderColor = "#99f6e4";
-                btn.style.color = "#0d9488";
-                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
-            }
-        }
-
-        // Glassmorphism Post Helpful UI Lock
-        function applyLikedStateGlass() {
-            const btn = document.getElementById('like-button-glass');
-            if (btn) {
-                btn.style.background = "#faf5ff";
-                btn.style.borderColor = "#e9d5ff";
-                btn.style.color = "#7e22ce";
-                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
-            }
-        }
-    </script>
-
-    <!-- Modal Dialog Engine -->
-    <script>
+        // Modal Dialog Mechanics
         function triggerNotification(message, badgeBg, badgeColor) {
             const modal = document.getElementById('notification-modal');
             const box = document.getElementById('modal-box');
             const badge = document.getElementById('modal-badge');
             
             document.getElementById('modal-msg').innerText = message;
-            badge.style.backgroundColor = badgeBg;
-            badge.style.color = badgeColor;
+            if (badgeBg) badge.style.backgroundColor = badgeBg;
+            if (badgeColor) badge.style.color = badgeColor;
 
             modal.style.display = 'flex';
             setTimeout(() => {
@@ -469,6 +376,132 @@
                 modal.style.display = 'none';
             }, 300);
         }
+    </script>
+
+    <!-- Firebase Real-Time Synchronization (Overrides local fallback when available) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        let db, auth;
+        let isAuthSuccess = false;
+        let aspectDocPath, glassDocPath;
+
+        const initializeFirebaseApp = async () => {
+            try {
+                if (typeof __firebase_config === 'undefined') {
+                    console.log("No Firebase config present. Running fully on offline-first mode.");
+                    return;
+                }
+                
+                const firebaseConfig = JSON.parse(__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                
+                const appId = typeof __app_id !== 'undefined' ? __app_id : 'ujwal-web-inline-tricks';
+                aspectDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'aspect_ratio_post_v3');
+                glassDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'glassmorphism_post_v1');
+
+                // Bind Auth Status
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        isAuthSuccess = true;
+                        
+                        // Set up metrics schemas online
+                        await ensureDocumentExists(aspectDocPath, { views: 14, likes: 5 });
+                        await ensureDocumentExists(glassDocPath, { views: 8, likes: 2 });
+                        
+                        // Handle user view hit logs
+                        await handlePageViewMetric('aspect_ratio_inline_view_registered', aspectDocPath);
+                        await handlePageViewMetric('glassmorphism_view_registered', glassDocPath);
+                        
+                        // Connect real-time listeners
+                        initRealtimeMetrics(aspectDocPath, 'view-counter', 'like-counter', 'aspect_ratio_inline_vote_status', applyLikedStateAspect);
+                        initRealtimeMetrics(glassDocPath, 'view-counter-glass', 'like-counter-glass', 'glassmorphism_vote_status', applyLikedStateGlass);
+
+                        // Bind online actions
+                        window.registerPostLike = async (type) => {
+                            const isAspect = type === 'aspect';
+                            const localStoreKey = isAspect ? 'aspect_ratio_inline_vote_status' : 'glassmorphism_vote_status';
+                            const docRef = isAspect ? aspectDocPath : glassDocPath;
+                            const styleCallback = isAspect ? applyLikedStateAspect : applyLikedStateGlass;
+                            const badgeBg = isAspect ? '#f0fdfa' : '#faf5ff';
+                            const badgeColor = isAspect ? '#14b8a6' : '#9333ea';
+
+                            if (localStorage.getItem(localStoreKey)) {
+                                triggerNotification("You have already supported this post!", badgeBg, badgeColor);
+                                return;
+                            }
+
+                            try {
+                                await updateDoc(docRef, { likes: increment(1) });
+                                localStorage.setItem(localStoreKey, 'true');
+                                styleCallback();
+                                triggerNotification("Thank you! Your vote is securely registered on our server.", badgeBg, badgeColor);
+                            } catch (err) {
+                                console.error("Firebase update failed. Falling back to local update:", err);
+                            }
+                        };
+                    }
+                });
+
+                // Establish custom or anonymous session
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+            } catch (err) {
+                console.warn("Firebase initialization skipped. Using local offline handlers.", err);
+            }
+        };
+
+        // Safe database creators
+        async function ensureDocumentExists(docRef, initialData) {
+            try {
+                const docSnap = await getDoc(docRef);
+                if (!docSnap.exists()) {
+                    await setDoc(docRef, initialData, { merge: true });
+                }
+            } catch (err) {
+                console.error("Initialization check error:", err);
+            }
+        }
+
+        // View handling
+        async function handlePageViewMetric(sessionKey, docRef) {
+            if (!sessionStorage.getItem(sessionKey)) {
+                try {
+                    await updateDoc(docRef, { views: increment(1) });
+                    sessionStorage.setItem(sessionKey, 'true');
+                } catch (e) {
+                    console.error("Failed writing page view:", e);
+                }
+            }
+        }
+
+        // Realtime database stream connector
+        function initRealtimeMetrics(docRef, viewCounterId, likeCounterId, localStoreKey, styleCallback) {
+            onSnapshot(docRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.data();
+                    document.getElementById(viewCounterId).innerText = Number(data.views || 0).toLocaleString();
+                    document.getElementById(likeCounterId).innerText = Number(data.likes || 0).toLocaleString();
+                }
+            }, (error) => {
+                console.warn("Firestore live synchronization skipped:", error);
+            });
+
+            if (localStorage.getItem(localStoreKey)) {
+                styleCallback();
+            }
+        }
+
+        // Run the async pipeline safe initialization
+        initializeFirebaseApp();
     </script>
 </body>
 </html>
