@@ -166,7 +166,7 @@
                 </span>
             </div>
 
-            <!-- Content Description (AdSense Optimized Human Copy) -->
+            <!-- Content Description -->
             <div style="font-size: 15px; color: #475569; line-height: 1.7; margin: 0 0 24px 0;">
                 <p style="margin-top: 0; margin-bottom: 16px;">
                     Modern user interface design is increasingly moving toward tactile, translucent elements. One of the most sought-after visual aesthetics in web design is **Glassmorphism**—creating elements that mimic physical frosted glass panels. While simple opacities only wash out your colors, authentic glassmorphism refracts and blurs elements passing directly underneath it.
@@ -232,7 +232,135 @@
         </div>
     </article>
 
-    <!-- Navigation / Go Back Button -->
+    <!-- Beautiful Minimalist Horizontal Divider -->
+    <hr style="border: 0; border-top: 1px solid #cbd5e1; width: 100%; max-width: 580px; margin: 0 auto 40px auto;">
+
+    <!-- [THIRD UNIQUE POST] Modern CSS Container Queries -->
+    <article style="width: 100%; max-width: 580px; background: #ffffff; border-radius: 24px; border: 1px solid #f1f5f9; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); overflow: hidden; transition: box-shadow 0.3s ease; box-sizing: border-box; margin-bottom: 40px;">
+        
+        <!-- Banner Image Container -->
+        <div style="width: 100%; height: 280px; overflow: hidden; background: #071520; position: relative;">
+            <img id="blog-cover-container" 
+                 src="container_queries.png" 
+                 onerror="this.src='https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80'" 
+                 alt="Sleek fluid layout system graphic representation" 
+                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+            
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 21, 32, 0.8) 0%, transparent 100%);"></div>
+            
+            <!-- Category Badge -->
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(13, 148, 136, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #ffffff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 12px; border-radius: 9999px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                CSS Architecture
+            </span>
+        </div>
+
+        <!-- Content Area -->
+        <div style="box-sizing: border-box; padding: 32px;">
+            
+            <!-- Main Headline -->
+            <h2 style="font-size: 1.65rem; color: #0f172a; margin: 0 0 12px 0; font-weight: 800; line-height: 1.25; tracking: -0.02em;">
+                Component-Driven Responsive Layouts via CSS Container Queries
+            </h2>
+
+            <!-- Post Meta Row -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px;">
+                <span style="display: flex; align-items: center; gap: 6px; color: #334155; font-weight: 600;">
+                    <span style="font-size: 15px;">✍️</span> Ujwal Subedi
+                </span>
+                <span style="color: #cbd5e1;">•</span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                    📅 May 29, 2026
+                </span>
+                <span style="color: #cbd5e1;">•</span>
+                <span style="display: flex; align-items: center; gap: 4px; color: #0d9488; font-weight: 600;">
+                    📍 Shivasatakshi, Nepal
+                </span>
+            </div>
+
+            <!-- Content Description -->
+            <div style="font-size: 15px; color: #475569; line-height: 1.7; margin: 0 0 24px 0;">
+                <p style="margin-top: 0; margin-bottom: 16px;">
+                    For decades, web developers relied exclusively on **Media Queries** to build responsive layouts. While media queries work beautifully for structuring entire pages based on the viewport width, they fall short in component-driven designs. A modular card should adapt its styling based on the *parent container* size, not the screen size.
+                </p>
+                <p style="margin-bottom: 16px;">
+                    With native **CSS Container Queries**, you can now configure a target parent as a containment context, allowing child elements to adapt dynamically depending on the box space they occupy.
+                </p>
+                
+                <!-- Code teaching Block -->
+                <div style="background: #090d16; border: 1px solid #1e293b; padding: 16px; border-radius: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; color: #14b8a6; overflow-x: auto; margin-bottom: 16px; box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);">
+                    <span style="color: #64748b;">/* 1. Define parent containment */</span><br>
+                    <span style="color: #f43f5e;">.parent-wrapper</span> {<br>
+                    &nbsp;&nbsp;<span style="color: #14b8a6;">container-type</span>: <span style="color: #fbbf24;">inline-size</span>;<br>
+                    }<br><br>
+                    <span style="color: #64748b;">/* 2. Adapt component inside parent */</span><br>
+                    <span style="color: #1a7f37;">@container</span> <span style="color: #f43f5e;">(min-width: 400px)</span> {<br>
+                    &nbsp;&nbsp;<span style="color: #f43f5e;">.profile-card</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #14b8a6;">display</span>: <span style="color: #fbbf24;">flex</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #14b8a6;">gap</span>: <span style="color: #fbbf24;">20px</span>;<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+                
+                <p style="margin-bottom: 0;">
+                    To see container containment in action, adjust the slider on the interactive widget below. Watch how the nested child component restructures itself smoothly purely based on parent boundaries!
+                </p>
+            </div>
+
+            <!-- LIVE INTERACTIVE WIDGET (CONTAINER QUERY PLAYGROUND) -->
+            <div style="background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; padding: 20px; margin-bottom: 24px; box-sizing: border-box;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                    <h4 style="margin: 0; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em;">Interactive Container Simulator</h4>
+                    <div style="display: flex; gap: 6px;">
+                        <button onclick="setContainerWidth('100%')" id="btn-width-full" style="padding: 4px 10px; background: #0f172a; color: #ffffff; font-size: 11px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;">Wide (Full)</button>
+                        <button onclick="setContainerWidth('340px')" id="btn-width-narrow" style="padding: 4px 10px; background: #ffffff; color: #475569; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; transition: all 0.2s;">Narrow (Mobile)</button>
+                    </div>
+                </div>
+
+                <!-- Simulation bounds representing the container -->
+                <div style="width: 100%; border: 1px dashed #cbd5e1; border-radius: 14px; background: #ffffff; overflow: hidden; padding: 12px; box-sizing: border-box;">
+                    <div id="simulated-container" style="width: 100%; margin: 0 auto; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-sizing: border-box;">
+                        
+                        <!-- Simulated Responsive Profile Component -->
+                        <div id="simulated-card" style="background: #f1f5f9; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; transition: all 0.4s ease; box-sizing: border-box;">
+                            
+                            <!-- Profile Avatar -->
+                            <div id="sim-avatar" style="width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #0d9488, #0ea5e9); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 20px; font-weight: bold; transition: all 0.4s ease;">
+                                🚀
+                            </div>
+                            
+                            <!-- Text Profile Details -->
+                            <div style="flex-grow: 1; transition: text-align 0.4s ease;" id="sim-text-align">
+                                <h5 style="margin: 0; font-size: 14.5px; font-weight: 800; color: #0f172a;" id="sim-heading">Dynamic Component Unit</h5>
+                                <p style="margin: 4px 0 0 0; font-size: 12px; color: #64748b; line-height: 1.45;" id="sim-desc">Adapts layout layout dynamically based on the component's surrounding boundary width limits.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Metrics Panel -->
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                <!-- Live Views counter -->
+                <div id="view-panel-container" style="display: flex; align-items: center; gap: 8px; color: #64748b; font-weight: 600; font-size: 14px; opacity: 1; transition: opacity 0.5s ease;">
+                    <span style="font-size: 16px;">👁️</span>
+                    <span>Views: <strong id="view-counter-container" style="color: #0f172a; font-weight: 700;">11</strong></span>
+                </div>
+
+                <!-- Live Helpful Vote Counter -->
+                <button id="like-button-container" 
+                        onclick="registerPostLike('container_queries')" 
+                        style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 9999px; border: 1px solid #ccfbf1; background: rgba(240, 253, 250, 0.4); color: #0d9488; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.02); opacity: 1;">
+                    <span>💡</span>
+                    <span>Helpful (<span id="like-counter-container">3</span>)</span>
+                </button>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Navigation Area -->
     <div style="width: 100%; max-width: 580px; text-align: center; margin-bottom: 40px; box-sizing: border-box;">
         <button onclick="history.back()" style="padding: 12px 28px; background: #0f172a; color: #ffffff; border: none; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);">
             Go Back
@@ -258,12 +386,28 @@
     <script>
         // Define fallback handlers immediately so buttons NEVER throw "not defined" console errors
         window.registerPostLike = function(type) {
-            // This function runs if Firebase modules are still initializing or blocked
             const isAspect = type === 'aspect';
-            const localStoreKey = isAspect ? 'aspect_ratio_inline_vote_status' : 'glassmorphism_vote_status';
-            const counterId = isAspect ? 'like-counter' : 'like-counter-glass';
-            const badgeBg = isAspect ? '#f0fdfa' : '#faf5ff';
-            const badgeColor = isAspect ? '#14b8a6' : '#9333ea';
+            const isGlass = type === 'glass';
+            const isContainer = type === 'container_queries';
+            
+            let localStoreKey, counterId, badgeBg, badgeColor;
+            
+            if (isAspect) {
+                localStoreKey = 'aspect_ratio_inline_vote_status';
+                counterId = 'like-counter';
+                badgeBg = '#f0fdfa';
+                badgeColor = '#14b8a6';
+            } else if (isGlass) {
+                localStoreKey = 'glassmorphism_vote_status';
+                counterId = 'like-counter-glass';
+                badgeBg = '#faf5ff';
+                badgeColor = '#9333ea';
+            } else {
+                localStoreKey = 'container_queries_vote_status';
+                counterId = 'like-counter-container';
+                badgeBg = '#f0fdfa';
+                badgeColor = '#0d9488';
+            }
 
             if (localStorage.getItem(localStoreKey)) {
                 triggerNotification("You have already supported this post!", badgeBg, badgeColor);
@@ -277,8 +421,10 @@
             localStorage.setItem(localStoreKey, 'true');
             if (isAspect) {
                 applyLikedStateAspect();
-            } else {
+            } else if (isGlass) {
                 applyLikedStateGlass();
+            } else {
+                applyLikedStateContainer();
             }
             triggerNotification("Thank you! Your helpful vote is registered locally.", badgeBg, badgeColor);
         };
@@ -300,6 +446,16 @@
                 btn.style.background = "#faf5ff";
                 btn.style.borderColor = "#e9d5ff";
                 btn.style.color = "#7e22ce";
+                btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
+            }
+        }
+
+        function applyLikedStateContainer() {
+            const btn = document.getElementById('like-button-container');
+            if (btn) {
+                btn.style.background = "#f0fdfa";
+                btn.style.borderColor = "#99f6e4";
+                btn.style.color = "#0d9488";
                 btn.innerHTML = `<span>🎉</span> <span>Marked Helpful!</span>`;
             }
         }
@@ -349,6 +505,54 @@
             });
         }
 
+        // Simulated Container Queries Adjustments (100% Reliable Sandbox Fallback)
+        function setContainerWidth(width) {
+            const container = document.getElementById('simulated-container');
+            const card = document.getElementById('simulated-card');
+            const avatar = document.getElementById('sim-avatar');
+            const textWrap = document.getElementById('sim-text-align');
+            const heading = document.getElementById('sim-heading');
+            const desc = document.getElementById('sim-desc');
+
+            container.style.width = width;
+
+            // Trigger mock container query rules using Javascript
+            if (width === '100%') {
+                document.getElementById('btn-width-full').style.background = "#0f172a";
+                document.getElementById('btn-width-full').style.color = "#ffffff";
+                document.getElementById('btn-width-narrow').style.background = "#ffffff";
+                document.getElementById('btn-width-narrow').style.color = "#475569";
+
+                // Wide Card Layout Style
+                card.style.flexDirection = "row";
+                card.style.alignItems = "flex-start";
+                card.style.padding = "20px";
+                avatar.style.width = "64px";
+                avatar.style.height = "64px";
+                textWrap.style.textAlign = "left";
+                heading.style.fontSize = "16px";
+                desc.style.fontSize = "13px";
+            } else {
+                document.getElementById('btn-width-full').style.background = "#ffffff";
+                document.getElementById('btn-width-full').style.color = "#475569";
+                document.getElementById('btn-width-narrow').style.background = "#0f172a";
+                document.getElementById('btn-width-narrow').style.color = "#ffffff";
+
+                // Narrow Mobile Card Layout Style
+                card.style.flexDirection = "column";
+                card.style.alignItems = "center";
+                card.style.padding = "16px";
+                avatar.style.width = "54px";
+                avatar.style.height = "54px";
+                textWrap.style.textAlign = "center";
+                heading.style.fontSize = "14.5px";
+                desc.style.fontSize = "12px";
+            }
+        }
+
+        // Set default simulation configuration to Narrow initially for visible impact
+        setContainerWidth('100%');
+
         // Modal Dialog Mechanics
         function triggerNotification(message, badgeBg, badgeColor) {
             const modal = document.getElementById('notification-modal');
@@ -378,7 +582,7 @@
         }
     </script>
 
-    <!-- Firebase Real-Time Synchronization (Overrides local fallback when available) -->
+    <!-- Firebase Real-Time Synchronization -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -386,7 +590,7 @@
 
         let db, auth;
         let isAuthSuccess = false;
-        let aspectDocPath, glassDocPath;
+        let aspectDocPath, glassDocPath, containerDocPath;
 
         const initializeFirebaseApp = async () => {
             try {
@@ -403,6 +607,7 @@
                 const appId = typeof __app_id !== 'undefined' ? __app_id : 'ujwal-web-inline-tricks';
                 aspectDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'aspect_ratio_post_v3');
                 glassDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'glassmorphism_post_v1');
+                containerDocPath = doc(db, 'artifacts', appId, 'public', 'data', 'metrics', 'container_queries_post_v1');
 
                 // Bind Auth Status
                 onAuthStateChanged(auth, async (user) => {
@@ -412,23 +617,44 @@
                         // Set up metrics schemas online
                         await ensureDocumentExists(aspectDocPath, { views: 14, likes: 5 });
                         await ensureDocumentExists(glassDocPath, { views: 8, likes: 2 });
+                        await ensureDocumentExists(containerDocPath, { views: 11, likes: 3 });
                         
                         // Handle user view hit logs
                         await handlePageViewMetric('aspect_ratio_inline_view_registered', aspectDocPath);
                         await handlePageViewMetric('glassmorphism_view_registered', glassDocPath);
+                        await handlePageViewMetric('container_queries_view_registered', containerDocPath);
                         
                         // Connect real-time listeners
                         initRealtimeMetrics(aspectDocPath, 'view-counter', 'like-counter', 'aspect_ratio_inline_vote_status', applyLikedStateAspect);
                         initRealtimeMetrics(glassDocPath, 'view-counter-glass', 'like-counter-glass', 'glassmorphism_vote_status', applyLikedStateGlass);
+                        initRealtimeMetrics(containerDocPath, 'view-counter-container', 'like-counter-container', 'container_queries_vote_status', applyLikedStateContainer);
 
                         // Bind online actions
                         window.registerPostLike = async (type) => {
                             const isAspect = type === 'aspect';
-                            const localStoreKey = isAspect ? 'aspect_ratio_inline_vote_status' : 'glassmorphism_vote_status';
-                            const docRef = isAspect ? aspectDocPath : glassDocPath;
-                            const styleCallback = isAspect ? applyLikedStateAspect : applyLikedStateGlass;
-                            const badgeBg = isAspect ? '#f0fdfa' : '#faf5ff';
-                            const badgeColor = isAspect ? '#14b8a6' : '#9333ea';
+                            const isGlass = type === 'glass';
+                            
+                            let localStoreKey, docRef, styleCallback, badgeBg, badgeColor;
+                            
+                            if (isAspect) {
+                                localStoreKey = 'aspect_ratio_inline_vote_status';
+                                docRef = aspectDocPath;
+                                styleCallback = applyLikedStateAspect;
+                                badgeBg = '#f0fdfa';
+                                badgeColor = '#14b8a6';
+                            } else if (isGlass) {
+                                localStoreKey = 'glassmorphism_vote_status';
+                                docRef = glassDocPath;
+                                styleCallback = applyLikedStateGlass;
+                                badgeBg = '#faf5ff';
+                                badgeColor = '#9333ea';
+                            } else {
+                                localStoreKey = 'container_queries_vote_status';
+                                docRef = containerDocPath;
+                                styleCallback = applyLikedStateContainer;
+                                badgeBg = '#f0fdfa';
+                                badgeColor = '#0d9488';
+                            }
 
                             if (localStorage.getItem(localStoreKey)) {
                                 triggerNotification("You have already supported this post!", badgeBg, badgeColor);
@@ -441,7 +667,7 @@
                                 styleCallback();
                                 triggerNotification("Thank you! Your vote is securely registered on our server.", badgeBg, badgeColor);
                             } catch (err) {
-                                console.error("Firebase update failed. Falling back to local update:", err);
+                                console.error("Firebase update failed:", err);
                             }
                         };
                     }
